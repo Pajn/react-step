@@ -1,7 +1,7 @@
 ---
 title: Custom Components
 imports:
-  '{Stepper}': '../../../dist/src/index'
+  '{Stepper}': '../../../cjs/index'
   '{AdvanceButton, ReverseButton}': '../../../react-toolbox'
   '{PageOne, PageTwo, PageThree}': '../../src/example-helpers'
   '{CowerFlow}': '../../src/05-custom-components'

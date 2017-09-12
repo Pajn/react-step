@@ -1,5 +1,5 @@
 import React from 'react'
-import {withStepper} from '../../dist/src/with-stepper'
+import {withStepper} from '../../cjs/with-stepper'
 
 const containerStyle = {
   display: 'flex',
@@ -33,19 +33,16 @@ const inactivePageStyle = {
   height: 50,
 }
 
-export const CowerFlow = withStepper(({pages, currentPage, setPageIndex}) =>
+export const CowerFlow = withStepper(({pages, currentPage, setPageIndex}) => (
   <div style={containerStyle}>
-    {pages.map((page, i) =>
+    {pages.map((page, i) => (
       <div
         key={i}
         onClick={() => setPageIndex(i)}
-        style={i === currentPage
-          ? activePageStyle
-          : inactivePageStyle
-        }
+        style={i === currentPage ? activePageStyle : inactivePageStyle}
       >
         {page.render ? page.render() : <page.component />}
       </div>
-    )}
+    ))}
   </div>
-)
+))

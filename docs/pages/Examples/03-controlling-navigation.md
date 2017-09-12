@@ -1,9 +1,9 @@
 ---
 title: Controlling Navigation
 imports:
-  '{Input}': 'react-toolbox/lib/input'
-  '{Stepper, StepperView, DotTracker}': '../../../dist/src/index'
-  '{AdvanceButton, ReverseButton}': '../../../dist/src/index'
+  '{Input}': 'react-toolbox/lib/input/Input'
+  '{Stepper, StepperView, DotTracker}': '../../../cjs/index'
+  '{AdvanceButton, ReverseButton}': '../../../cjs/index'
 ---
 ```store example
 <Stepper pages={[

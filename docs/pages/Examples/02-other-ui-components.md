@@ -2,8 +2,8 @@
 title: Other UI Components
 imports:
   '{FontIcon}': 'react-toolbox/lib/font_icon'
-  '{Stepper, StepperView, StepTitle, TextTracker}': '../../../dist/src/index'
-  '{AdvanceButton, ReverseButton}': '../../../dist/src/react-toolbox'
+  '{Stepper, StepperView, StepTitle, TextTracker}': '../../../cjs/index'
+  '{AdvanceButton, ReverseButton}': '../../../cjs/react-toolbox'
   '{PageOne, PageTwo, PageThree}': '../../src/example-helpers'
 ---
 ```store example

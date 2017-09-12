@@ -1,5 +1,5 @@
 import React, {CSSProperties, ReactChild} from 'react'
-import {Row} from 'styled-material/lib/layout'
+import {Row} from 'styled-material/cjs/layout'
 
 export const defaultActiveColor = '#3f51b5'
 export const defaultAlertColor = '#f44336'

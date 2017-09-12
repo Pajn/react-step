@@ -1,6 +1,6 @@
 {
   "name": "react-step",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "",
   "main": "cjs/index.js",
   "module": "lib/index.js",
@@ -20,15 +20,17 @@
   "author": "Rasmus Eneman",
   "license": "MIT",
   "devDependencies": {
-    "documittu": "^0.1.0",
-    "documittu-analyzer-ts": "^0.1.0",
-    "documittu-template-default": "^0.1.0",
+    "babel-loader": "^7.1.2",
+    "documittu": "^0.2.3",
+    "documittu-analyzer-ts": "^0.2.0",
+    "documittu-template-default": "^0.2.3",
     "prettier": "^1.6.1",
     "react-addons-css-transition-group": "^15.4.2",
     "react-toolbox": "^2.0.0-beta.12",
     "tscomp": "^0.13.2",
     "tslint": "^4.0.2",
-    "tslint-config-pajn": "^1.0.0"
+    "tslint-config-pajn": "^1.0.0",
+    "typedoc": "^0.8.0"
   },
   "peerDependencies": {
     "react": "^15.4.2",
@@ -42,5 +44,8 @@
     "prop-types": "^15.5.10",
     "recompose": "^0.25.0",
     "styled-material": "^0.2.0"
+  },
+  "tscomp": {
+    "mode": "lib"
   }
 }

@@ -1,7 +1,7 @@
 ---
 title: Vertical Stepper
 imports:
-  '{Stepper}': '../../../dist/src/index'
+  '{Stepper}': '../../../cjs/index'
   '{AdvanceButton, ReverseButton, VerticalStepper}': '../../../react-toolbox'
   '{PageOne, PageTwo, PageThree}': '../../src/example-helpers'
 ---

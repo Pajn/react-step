@@ -1,7 +1,7 @@
 ---
 title: Basic Stepper
 imports:
-  '{Stepper, StepperView, DotTracker, AdvanceButton, ReverseButton}': '../../../dist/src/index'
+  '{Stepper, StepperView, DotTracker, AdvanceButton, ReverseButton}': '../../../cjs/index'
   '{PageOne, PageTwo, PageThree}': '../../src/example-helpers'
 ---
 ```store example

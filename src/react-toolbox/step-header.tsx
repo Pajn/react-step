@@ -1,6 +1,6 @@
 import React from 'react'
 import {CSSProperties} from 'react'
-import {Column} from 'styled-material/lib/layout'
+import {Column} from 'styled-material/cjs/layout'
 import {PageConfig} from '../entities'
 import {ClickableRow, defaultAlertColor} from '../utils'
 import {StepCircle} from './step-circle'
