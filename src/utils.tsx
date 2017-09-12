@@ -1,6 +1,5 @@
-import * as React from 'react'
-import {CSSProperties, ReactChild} from 'react'
-import {Row} from 'styled-material/dist/src/layout'
+import React, {CSSProperties, ReactChild} from 'react'
+import {Row} from 'styled-material/lib/layout'
 
 export const defaultActiveColor = '#3f51b5'
 export const defaultAlertColor = '#f44336'
@@ -17,15 +16,19 @@ export type CircleProps = {
 /**
  * A simple circle, used for step icons and by the dot tracker.
  */
-export const Circle = ({size, color, margin, children, style}: CircleProps) =>
-  <div children={children} style={{
-    margin,
-    width: size,
-    height: size,
-    backgroundColor: color,
-    borderRadius: '50%',
-    ...style,
-  }} />
+export const Circle = ({size, color, margin, children, style}: CircleProps) => (
+  <div
+    children={children}
+    style={{
+      margin,
+      width: size,
+      height: size,
+      backgroundColor: color,
+      borderRadius: '50%',
+      ...style,
+    }}
+  />
+)
 
 /**
  * A function to filter keyboard events to spacebar and Enter
@@ -39,7 +42,7 @@ export const onKeyboardClick = fn => (e: React.KeyboardEvent<any>) => {
 /**
  * A flexbox row that is focusable and clickable like a button
  */
-export const ClickableRow = ({onClick, disabled, style, ...props}) =>
+export const ClickableRow = ({onClick, disabled, style, ...props}) => (
   <Row
     role={!disabled && 'button'}
     style={{
@@ -51,17 +54,21 @@ export const ClickableRow = ({onClick, disabled, style, ...props}) =>
     onKeyPress={onKeyboardClick(onClick)}
     {...props}
   />
+)
 
 /**
  * A simple vertical line, used for constructing the vertical stepper
  */
-export const VerticalLine = () =>
-  <div style={{
-    position: 'absolute',
-    top: 0,
-    left: 36,
-    bottom: 16,
-    heigth: '100%',
-    width: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.12)',
-  }} />
+export const VerticalLine = () => (
+  <div
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 36,
+      bottom: 16,
+      heigth: '100%',
+      width: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.12)',
+    }}
+  />
+)

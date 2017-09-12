@@ -1,4 +1,5 @@
-dist/
+cjs/
+lib/
 node_modules/
 example/yarn.lock
 npm-debug.log

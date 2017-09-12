@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import {CSSProperties} from 'react'
 import {FontIcon} from 'react-toolbox/lib/font_icon'
 import {Status} from '../entities'
@@ -17,8 +17,9 @@ export type Props = {
  * An material warning icon to use for steps that needs the
  * users attention.
  */
-export const AlertIcon = ({alertColor = defaultAlertColor}) =>
-  <FontIcon value='warning' style={{color: alertColor}} />
+export const AlertIcon = ({alertColor = defaultAlertColor}) => (
+  <FontIcon value="warning" style={{color: alertColor}} />
+)
 
 const circleStyle = {
   display: 'flex',
@@ -33,19 +34,20 @@ const circleStyle = {
  * A material check icon in a circle to use for steps that
  * are completed.
  */
-export const DoneIcon = ({activeColor = defaultActiveColor}) =>
-  <Circle
-    size={24}
-    color={activeColor}
-    style={circleStyle}
-  >
-    <FontIcon value='check' style={{fontSize: 14}} />
+export const DoneIcon = ({activeColor = defaultActiveColor}) => (
+  <Circle size={24} color={activeColor} style={circleStyle}>
+    <FontIcon value="check" style={{fontSize: 14}} />
   </Circle>
+)
 
 /**
  * A circle with the step number to use for most steps.
  */
-export const StepNumber = ({step, active, activeColor = defaultActiveColor}) =>
+export const StepNumber = ({
+  step,
+  active,
+  activeColor = defaultActiveColor,
+}) => (
   <Circle
     size={24}
     color={active ? activeColor : 'rgba(0, 0, 0, 0.38)'}
@@ -53,20 +55,32 @@ export const StepNumber = ({step, active, activeColor = defaultActiveColor}) =>
   >
     {step}
   </Circle>
+)
 
 /**
  * Renders the appropriate step icon for the current status.
  */
-export const StepCircle = ({step, active = true, status, style, activeColor, alertColor}: Props) =>
-  <div style={{
-    padding: 8,
-    backgroundColor: 'white',
-    ...style,
-  }}>{
-    status === 'alert' ?
-      <AlertIcon alertColor={alertColor} /> :
-    status === 'done' ?
+export const StepCircle = ({
+  step,
+  active = true,
+  status,
+  style,
+  activeColor,
+  alertColor,
+}: Props) => (
+  <div
+    style={{
+      padding: 8,
+      backgroundColor: 'white',
+      ...style,
+    }}
+  >
+    {status === 'alert' ? (
+      <AlertIcon alertColor={alertColor} />
+    ) : status === 'done' ? (
       <DoneIcon activeColor={activeColor} />
-    :
+    ) : (
       <StepNumber step={step} active={active} activeColor={activeColor} />
-  }</div>
+    )}
+  </div>
+)

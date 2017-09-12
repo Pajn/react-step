@@ -1,10 +1,12 @@
-import * as React from 'react'
-import {CSSProperties, StatelessComponent} from 'react'
-import compose from 'recompose/compose'
-import setDisplayName from 'recompose/setDisplayName'
+import {Requireable} from 'prop-types'
+import React, {CSSProperties, StatelessComponent} from 'react'
+import {compose, setDisplayName} from 'recompose'
 import {withStepper} from './with-stepper'
 
-const defaultGenerateText = (current, total) => `Step ${current + 1} of ${total}`
+export {Requireable}
+
+const defaultGenerateText = (current, total) =>
+  `Step ${current + 1} of ${total}`
 
 /**
  * A component for tracking the current and total pages
@@ -33,6 +35,6 @@ export const TextTracker: StatelessComponent<{
 }> = compose(
   withStepper,
   setDisplayName('TextTracker'),
-)(({pages, currentPage, generateText = defaultGenerateText, style}) =>
+)(({pages, currentPage, generateText = defaultGenerateText, style}) => (
   <span style={style}>{generateText(currentPage, pages.length)}</span>
-)
+))

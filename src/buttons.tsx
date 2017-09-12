@@ -1,7 +1,10 @@
-import * as React from 'react'
-import {DOMAttributes, ReactChild, ReactType, StatelessComponent} from 'react'
-import compose from 'recompose/compose'
-import setDisplayName from 'recompose/setDisplayName'
+import React, {
+  DOMAttributes,
+  ReactChild,
+  ReactType,
+  StatelessComponent,
+} from 'react'
+import {compose, setDisplayName} from 'recompose'
 import {withStepper} from './with-stepper'
 
 export type AdvanceButtonProps = {
@@ -34,42 +37,60 @@ export type AdvanceButtonProps = {
  * </AdvanceButton>
  * ```
  */
-export const AdvanceButton: StatelessComponent<AdvanceButtonProps & DOMAttributes<HTMLButtonElement>> = compose(
+export const AdvanceButton: StatelessComponent<
+  AdvanceButtonProps & DOMAttributes<HTMLButtonElement>
+> = compose(
   withStepper,
   setDisplayName('AdvanceButton'),
-)(({
-  component: Button = 'button',
-  canReverse: _, pageState: __, setPageState: ___,
-  pages, canAdvance, canFinish, currentPage, setPageIndex,
-  disabled, onClick, onNext, onFinish, finishLabel,
-  children, ...props,
-}) => {
-  const isLast = finishLabel && currentPage + 1 >= pages.length
+)(
+  ({
+    component: Button = 'button',
+    canReverse: _,
+    pageState: __,
+    setPageState: ___,
+    pages,
+    canAdvance,
+    canFinish,
+    currentPage,
+    setPageIndex,
+    disabled,
+    onClick,
+    onNext,
+    onFinish,
+    finishLabel,
+    children,
+    ...props,
+  }) => {
+    const isLast = finishLabel && currentPage + 1 >= pages.length
 
-  return (
-    <Button disabled={disabled || (isLast ? !canFinish : !canAdvance)} {...props} onClick={e => {
-      let returnValue
-      if (currentPage + 1 >= pages.length) {
-        if (onFinish) {
-          returnValue = onFinish()
-        }
-      } else {
-        if (onNext) {
-          returnValue = onNext()
-        }
-        setPageIndex(currentPage + 1)
-      }
-      return onClick
-        ? onClick(e)
-        : returnValue
-    }}>
-      {finishLabel && currentPage + 1 >= pages.length
-        ? finishLabel
-        : children
-      }
-    </Button>
-  )
-})
+    return (
+      <Button
+        disabled={disabled || (isLast ? !canFinish : !canAdvance)}
+        {...props}
+        onClick={e => {
+          let returnValue
+          if (currentPage + 1 >= pages.length) {
+            if (onFinish) {
+              returnValue = onFinish()
+            }
+          } else {
+            if (onNext) {
+              returnValue = onNext()
+            }
+            setPageIndex(currentPage + 1)
+          }
+          return onClick ? onClick(e) : returnValue
+        }}
+      >
+        {finishLabel && currentPage + 1 >= pages.length ? (
+          finishLabel
+        ) : (
+          children
+        )}
+      </Button>
+    )
+  },
+)
 
 export type ReverseButtonProps = {
   /**
@@ -101,35 +122,49 @@ export type ReverseButtonProps = {
  * </ReverseButton>
  * ```
  */
-export const ReverseButton: StatelessComponent<ReverseButtonProps & DOMAttributes<HTMLButtonElement>> = compose(
+export const ReverseButton: StatelessComponent<
+  ReverseButtonProps & DOMAttributes<HTMLButtonElement>
+> = compose(
   withStepper,
   setDisplayName('ReverseButton'),
-)(({
-  component: Button = 'button',
-  canAdvance: _, pages: __, pageState: ___, setPageState: ____, canFinish: _____,
-  canReverse, currentPage, setPageIndex,
-  disabled, onClick, onPrevious, onCancel, cancelLabel,
-  children, ...props,
-}) =>
-  <Button disabled={disabled || (!cancelLabel && !canReverse)} {...props} onClick={e => {
-    let returnValue
-    if (currentPage <= 0) {
-      if (onCancel) {
-        returnValue = onCancel()
-      }
-    } else {
-      if (onPrevious) {
-        returnValue = onPrevious()
-      }
-      setPageIndex(currentPage - 1)
-    }
-    return onClick
-      ? onClick(e)
-      : returnValue
-  }}>
-    {cancelLabel && currentPage <= 0
-      ? cancelLabel
-      : children
-    }
-  </Button>
+)(
+  ({
+    component: Button = 'button',
+    canAdvance: _,
+    pages: __,
+    pageState: ___,
+    setPageState: ____,
+    canFinish: _____,
+    canReverse,
+    currentPage,
+    setPageIndex,
+    disabled,
+    onClick,
+    onPrevious,
+    onCancel,
+    cancelLabel,
+    children,
+    ...props,
+  }) => (
+    <Button
+      disabled={disabled || (!cancelLabel && !canReverse)}
+      {...props}
+      onClick={e => {
+        let returnValue
+        if (currentPage <= 0) {
+          if (onCancel) {
+            returnValue = onCancel()
+          }
+        } else {
+          if (onPrevious) {
+            returnValue = onPrevious()
+          }
+          setPageIndex(currentPage - 1)
+        }
+        return onClick ? onClick(e) : returnValue
+      }}
+    >
+      {cancelLabel && currentPage <= 0 ? cancelLabel : children}
+    </Button>
+  ),
 )

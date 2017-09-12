@@ -1,6 +1,8 @@
-import * as React from 'react'
-import {Component} from 'react'
+import {Requireable} from 'prop-types'
+import React, {Component} from 'react'
 import {Context, stepperContext} from './entities'
+
+export {Requireable}
 
 /**
  * Renders the active page in the stepper

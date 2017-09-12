@@ -1,4 +1,5 @@
-import {PropTypes, ReactElement, ReactType} from 'react'
+import PropTypes from 'prop-types'
+import {ReactElement, ReactType} from 'react'
 
 /**
  * The stepper context as PropTypes to be consumed by React
@@ -25,12 +26,12 @@ export type Context = {
   setPageIndex: (index: number) => void
 }
 
-export type Awaitable<T> = Promise<T>|T
+export type Awaitable<T> = Promise<T> | T
 
 /**
  * The allowed page statuses
  */
-export type Status = 'done'|'alert'
+export type Status = 'done' | 'alert'
 
 /**
  * A page in the stepper
@@ -52,21 +53,21 @@ export type PageConfig = {
    * If a Promise is returned, it will be awaited before the next page is actived.
    * If false or a promise that resolves to false is returned the navigation is aborted.
    */
-  onLeave?: (nextIndex: number) => Awaitable<void|boolean>
+  onLeave?: (nextIndex: number) => Awaitable<void | boolean>
   /**
    * Callback when the page is about the be left for a subsequent page.
    *
    * If a Promise is returned, it will be awaited before the next page is actived.
    * If false or a promise that resolves to false is returned the navigation is aborted.
    */
-  onAdvance?: (nextIndex: number) => Awaitable<void|boolean>
+  onAdvance?: (nextIndex: number) => Awaitable<void | boolean>
   /**
    * Callback when the page is about the be left for a preceding page.
    *
    * If a Promise is returned, it will be awaited before the next page is actived.
    * If false or a promise that resolves to false is returned the navigation is aborted.
    */
-  onReverse?: (nextIndex: number) => Awaitable<void|boolean>
+  onReverse?: (nextIndex: number) => Awaitable<void | boolean>
   /**
    * Controls whenever the page is allow to be left for a subsequent page.
    */

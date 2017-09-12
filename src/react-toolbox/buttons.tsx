@@ -1,6 +1,6 @@
-import * as React from 'react'
+import React from 'react'
 import {StatelessComponent} from 'react'
-import {Button, ButtonProps} from 'react-toolbox/lib/button'
+import Button, {ButtonProps} from 'react-toolbox/lib/button/Button'
 import * as buttons from '../buttons'
 import {AdvanceButtonProps, ReverseButtonProps} from '../buttons'
 
@@ -17,8 +17,9 @@ import {AdvanceButtonProps, ReverseButtonProps} from '../buttons'
  * </AdvanceButton>
  * ```
  */
-export const AdvanceButton: StatelessComponent<AdvanceButtonProps & ButtonProps> = (props: any) =>
-  <buttons.AdvanceButton component={Button} {...props} />
+export const AdvanceButton: StatelessComponent<
+  AdvanceButtonProps & ButtonProps
+> = (props: any) => <buttons.AdvanceButton component={Button} {...props} />
 
 /**
  * Renders a react-toolbox Button to go to the previous step
@@ -33,5 +34,6 @@ export const AdvanceButton: StatelessComponent<AdvanceButtonProps & ButtonProps>
  * </ReverseButton>
  * ```
  */
-export const ReverseButton: StatelessComponent<ReverseButtonProps & ButtonProps> = (props: any) =>
-  <buttons.ReverseButton component={Button} {...props} />
+export const ReverseButton: StatelessComponent<
+  ReverseButtonProps & ButtonProps
+> = (props: any) => <buttons.ReverseButton component={Button} {...props} />

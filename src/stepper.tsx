@@ -1,6 +1,8 @@
-import * as React from 'react'
-import {Children, Component, ReactElement} from 'react'
+import {Requireable} from 'prop-types'
+import React, {Children, Component, ReactElement} from 'react'
 import {PageConfig, stepperContext} from './entities'
+
+export {Requireable}
 
 export type Props = {
   /**
@@ -90,19 +92,24 @@ export class Stepper extends Component<Props, State> {
     const {pages, allowJumpAhead, allowJumpBack = true} = this.props
     const currentPage = this.pageIndex
 
-    if (index >= pages.length) throw RangeError(`index ${index} is higher than avalible pages ${pages.length}`)
+    if (index >= pages.length)
+      throw RangeError(
+        `index ${index} is higher than avalible pages ${pages.length}`,
+      )
     if (index < 0) throw RangeError(`index ${index} is lower than zero`)
 
     const page = pages[currentPage]
 
     if (index > currentPage) {
       if (index > currentPage + 1 && !allowJumpAhead) return false
-      if (!this.canAdvance || !(await this.allowNavigate(page.onAdvance, index))) return false
+      if (!this.canAdvance || !await this.allowNavigate(page.onAdvance, index))
+        return false
     } else {
       if (index < currentPage - 1 && !allowJumpBack) return false
-      if (!this.canReverse || !(await this.allowNavigate(page.onReverse, index))) return false
+      if (!this.canReverse || !await this.allowNavigate(page.onReverse, index))
+        return false
     }
-    if (!(await this.allowNavigate(page.onLeave, index))) return false
+    if (!await this.allowNavigate(page.onLeave, index)) return false
 
     const nextPage = pages[index]
     await this.allowNavigate(nextPage.onEnter, currentPage)
@@ -130,7 +137,11 @@ export class Stepper extends Component<Props, State> {
     if (nextProps.pages.length <= this.pageIndex) {
       this._setIndex(0)
     }
-    if (nextProps.index !== this.props.index && !nextProps.onChange && typeof nextProps.index === 'number') {
+    if (
+      nextProps.index !== this.props.index &&
+      !nextProps.onChange &&
+      typeof nextProps.index === 'number'
+    ) {
       this._setIndex(nextProps.index)
     }
   }
@@ -138,9 +149,11 @@ export class Stepper extends Component<Props, State> {
   render() {
     const {children} = this.props
 
-    return Children.count(children) < 2
-      ? children as ReactElement<any>
-      : <div>{children}</div>
+    return Children.count(children) < 2 ? (
+      children as ReactElement<any>
+    ) : (
+      <div>{children}</div>
+    )
   }
 
   private _setIndex(index: number) {
