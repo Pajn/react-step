@@ -2872,8 +2872,8 @@ doctrine@^1.2.2:
     isarray "^1.0.0"
 
 documittu-analyzer-ts@^0.2.0:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/documittu-analyzer-ts/-/documittu-analyzer-ts-0.2.7.tgz#a07e1e591f11e93d9f49058ad4e6fd4cbea58133"
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/documittu-analyzer-ts/-/documittu-analyzer-ts-0.2.10.tgz#24f58393b97f8f8fd47b3c5a53e05d5fd1b536ee"
   dependencies:
     glob "^7.1.2"
     virtual-module-webpack-plugin "^0.3.0"
@@ -2888,9 +2888,9 @@ documittu-markdown-loader@^0.2.0:
     node-prismjs "^0.1.0"
     remarkable "^1.6.2"
 
-documittu-template-default@^0.2.3, documittu-template-default@^0.2.7:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/documittu-template-default/-/documittu-template-default-0.2.7.tgz#043b9bf76b3782f707832c19c71664e568f67170"
+documittu-template-default@^0.2.10, documittu-template-default@^0.2.3:
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/documittu-template-default/-/documittu-template-default-0.2.10.tgz#62d0c040ed9bffccfcd96e56dc071eb18a5dd08f"
   dependencies:
     "@types/node" "^8.0.28"
     "@types/react" "^16.0.5"
@@ -2912,8 +2912,8 @@ documittu-template-default@^0.2.3, documittu-template-default@^0.2.7:
     styled-material "^0.2.0"
 
 documittu@^0.2.3:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/documittu/-/documittu-0.2.7.tgz#38e95c00a5ef1b0b60ec4146d0eb6372eb17f803"
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/documittu/-/documittu-0.2.10.tgz#3449fb60c82a9d8f29c301290975ce8de3f561de"
   dependencies:
     "@types/node" "^7.0.5"
     "@types/react" "^15.0.10"
@@ -2926,7 +2926,7 @@ documittu@^0.2.3:
     css-loader "0.26.1"
     detect-port "1.0.1"
     documittu-markdown-loader "^0.2.0"
-    documittu-template-default "^0.2.7"
+    documittu-template-default "^0.2.10"
     extract-text-webpack-plugin "1.0.1"
     file-loader "0.10.0"
     filesize "3.3.0"
