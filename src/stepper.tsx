@@ -26,6 +26,8 @@ export type Props = {
    * @default false
    */
   allowJumpAhead?: boolean
+
+  className?: string
 }
 
 export type State = {
@@ -152,7 +154,7 @@ export class Stepper extends Component<Props, State> {
     return Children.count(children) < 2 ? (
       children as ReactElement<any>
     ) : (
-      <div>{children}</div>
+      <div className={this.props.className}>{children}</div>
     )
   }
 
